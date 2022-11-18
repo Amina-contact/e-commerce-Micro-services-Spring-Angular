@@ -1,0 +1,114 @@
+<style>
+  @media (min-width: 1025px) {
+    .h-custom {
+      height: 0vh !important;
+    }
+  }
+
+  .horizontal-timeline .items {
+    border-top: 2px solid #ddd;
+  }
+
+  .horizontal-timeline .items .items-list {
+    position: relative;
+    margin-right: 0;
+  }
+
+  .horizontal-timeline .items .items-list:before {
+    content: "";
+    position: absolute;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: #ddd;
+    top: 0;
+    margin-top: -30px;
+  }
+</style>
+<section class="h-custom" style="background-color: #eee;">
+  <div class="container h-100" *ngIf="orderDetails">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-10 col-xl-10">
+        <div class="card border-top border-bottom border-3" style="border-color: #f37a27 !important;height:570px;">
+          <div class="card-body" >
+
+            <p class="lead fw-bold mt-lg-0 mb-1" style="color: #f37a27;margin-top: -200px;">Order Details</p>
+
+            <div class="row">
+              <div class="col mb-1">
+                <p class="small text-muted mb-1">Order ID:</p>
+                <p>{{orderId}}</p>
+              </div>
+              <div class="col mb-1">
+                <p class="small text-muted mb-1">Order Status:</p>
+                <p>{{orderDetails.status}}</p>
+              </div>
+              <div class="col mb-1">
+                <p class="small text-muted mb-1">Date:</p>
+                <p>{{orderDetails.createdAt | date:'dd/MM/yyyy'}}</p>
+              </div>
+            </div>
+            <div class="mx-n5 px-5" style="background-color: #f2f2f2;">
+              <p class="lead  mb-sm-0" style="color: #f37a27;">Customer Details</p>
+              <div class="row">
+                <div class="col-md-8 col-lg-6">
+                  <p>Customer ID</p>
+                </div>
+                <div class="col-md-4 col-lg-6">
+                  <p>{{orderDetails.customer.id}}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 col-lg-6">
+                  <p class="mb-0">Customer Name</p>
+                </div>
+                <div class="col-md-8 col-lg-6">
+                  <p>{{orderDetails.customer.name}}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 col-lg-6">
+                  <p class="mb-0">Customer Email</p>
+                </div>
+                <div class="col-md-8 col-lg-6">
+                  <p>{{orderDetails.customer.email}}</p>
+                </div>
+              </div>
+
+              <p class="lead  mb-sm-0 mt-sm-0" style="color: #f37a27;">Product Items</p>
+              <div class="row">
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th scope="col">Product ID</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Discount</th>
+                    <th scope="col">Amount</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let pi of orderDetails.productItems">
+                    <td>{{pi.product.id}}</td>
+                    <td>{{pi.product.name}}</td>
+                    <td>{{pi.quantity}}</td>
+                    <td>{{pi.price | number:'.2'}}</td>
+                    <td>{{pi.discount | number:'.2'}}</td>
+                    <td>{{pi.amount | number:'.2'}}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+          </div>
+            <div class="row">
+              <div class="col-md-4 offset-md-8 col-lg-3 offset-lg-9">
+                <p class="lead fw-bold" style="color: #f37a27;">Total : {{orderDetails.total | number:'.2'}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
