@@ -362,14 +362,14 @@ management.endpoints.web.exposure.include=*
 <pre class="notranslate"><code> ng new ecommerce-Front</code></pre>
 <li>Installing Bootstrap and Bootstrap-icons</strong>:</li>
 <pre class="notranslate"><code> npm install --save bootstrap bootstrap-icons</code></pre>
-<li>Adding the installed boostrap css files to </strong>:</li><code>angular.json</code>
+<li>Adding the installed boostrap css files to <code>angular.json</code></strong>:</li> 
 <img src="https://github.com/Amina-contact/e-commerce-Micro-services-Spring-Angular/blob/master/pictures/a1.JPG">
-<pre class="notranslate"><code><li>Generating the component products </strong>:</li><code>ng g c products</code></pre>
+<li>Generating the component products </strong>:</li>
+<pre class="notranslate"><code>ng g c products</code></pre>
 <img src="https://github.com/Amina-contact/e-commerce-Micro-services-Spring-Angular/blob/master/pictures/a2.JPG">
-<li>Adding <code>HttpClientModule</code> to the imports in the </strong>:</li><code>app.module.ts</code>
+<li>Adding <code>HttpClientModule</code> to the imports in the <code>app.module.ts</code></strong>:</li>
 <img src="https://github.com/Amina-contact/e-commerce-Micro-services-Spring-Angular/blob/master/pictures/a3.JPG">
-<li>Adding <code>ProductComponent</code> to the routes in the </strong>:</li><code>app-routing.module.ts</code>
+<li>Adding <code>ProductComponent</code> to the routes in the <code>app-routing.module.ts</code></strong>:</li>
 <img src="https://github.com/Amina-contact/e-commerce-Micro-services-Spring-Angular/blob/master/pictures/a4.JPG">
-<li>Fixing the CORS problem</strong>:</li>
-<code>By adding  application.yaml in the gateway-service to  allow the GET POST PUT DELETE requests from the localhost domain:4200 </code>
+<li>Fixing the CORS problem <code>By adding  application.yaml in the gateway-service to  allow the GET POST PUT DELETE requests from the localhost domain:4200 </code></strong></li>
 <img src="https://github.com/Amina-contact/e-commerce-Micro-services-Spring-Angular/blob/master/pictures/a5.JPG">
