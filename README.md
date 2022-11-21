@@ -373,3 +373,20 @@ management.endpoints.web.exposure.include=*
 <img src="https://github.com/Amina-contact/e-commerce-Micro-services-Spring-Angular/blob/master/pictures/a4.JPG">
 <li>Fixing the CORS problem <code>By adding  application.yaml in the gateway-service to  allow the GET POST PUT DELETE requests from the localhost domain:4200 </code></strong></li>
 <img src="https://github.com/Amina-contact/e-commerce-Micro-services-Spring-Angular/blob/master/pictures/a5.JPG">
+<li>Testing Projection & Gateway-Service</strong>:</li>
+<pre class="notranslate">
+<code>
+In the same way we will add the other componenents :
+ ng g c component_name
+ Add  route in app.routing.modules.ts
+ Edit the HTML and CSS
+</code>
+</pre>
+<li>List Products</strong>:</li>
+<img src="https://github.com/Amina-contact/e-commerce-Micro-services-Spring-Angular/blob/master/pictures/a11.JPG">
+<li>List Customers</strong>:</li>
+<img src="https://github.com/Amina-contact/e-commerce-Micro-services-Spring-Angular/blob/master/pictures/a12.JPG">
+<li>Orders List for a Customer</strong>:</li>
+<img src="https://github.com/Amina-contact/e-commerce-Micro-services-Spring-Angular/blob/master/pictures/a13.JPG">
+<li>Order Details</strong>:</li>
+<img src="https://github.com/Amina-contact/e-commerce-Micro-services-Spring-Angular/blob/master/pictures/a14.JPG">
