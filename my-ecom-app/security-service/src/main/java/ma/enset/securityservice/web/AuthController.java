@@ -1,7 +1,8 @@
 package ma.enset.securityservice.web;
 
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.oauth2.jwt.JwtClaimsSet;
 import org.springframework.security.oauth2.jwt.JwtEncoder;
 import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
@@ -10,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -18,13 +18,17 @@ import java.util.stream.Collectors;
 @RestController
 public class AuthController {
     private JwtEncoder jwtEncoder;
-
-    public AuthController(JwtEncoder jwtEncoder) {
+    private AuthenticationManager authenticationManager;
+    public AuthController(JwtEncoder jwtEncoder, AuthenticationManager authenticationManager) {
         this.jwtEncoder = jwtEncoder;
+        this.authenticationManager = authenticationManager;
     }
 
     @PostMapping("/token")
-    public Map<String, String> jwtToken(Authentication authentication) {
+    public Map<String, String> jwtToken(String username,String password,boolean withRefreshToken) {
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(username, password)
+        );
         Map<String, String> idToken = new HashMap<>();
         Instant instant = Instant.now();
         String scope = authentication.getAuthorities()
@@ -33,12 +37,13 @@ public class AuthController {
         JwtClaimsSet jwtClaimsSet = JwtClaimsSet.builder()
                 .subject(authentication.getName())
                 .issuedAt(instant)
-                .expiresAt(instant.plus(5, ChronoUnit.MINUTES))
+                .expiresAt(instant.plus(withRefreshToken?5:30, ChronoUnit.MINUTES))
                 .issuer("security-service")
                 .claim("scope", scope)
                 .build();
         String jwtAccessToken = jwtEncoder.encode(JwtEncoderParameters.from(jwtClaimsSet)).getTokenValue();
         idToken.put("accessToken", jwtAccessToken);
+
         return idToken;
     }
 }
