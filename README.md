@@ -393,4 +393,3 @@ In the same way we will add the other componenents :
 <img src="https://github.com/Amina-contact/e-commerce-Micro-services-Spring-Angular/blob/master/pictures/a14.JPG">
 =======
 <img src="https://github.com/Amina-contact/e-commerce-Micro-services-Spring-Angular/blob/master/pictures/a14.JPG">
->>>>>>> 4928dd780af42a7f7cda6cfb85c37099e798771d
