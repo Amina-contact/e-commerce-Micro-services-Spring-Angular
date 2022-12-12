@@ -389,7 +389,7 @@ In the same way we will add the other componenents :
 <li>Orders List for a Customer</strong>:</li>
 <img src="https://github.com/Amina-contact/e-commerce-Micro-services-Spring-Angular/blob/master/pictures/a13.JPG">
 <li>Order Details</strong>:</li>
-<<<<<<< HEAD
+
 <img src="https://github.com/Amina-contact/e-commerce-Micro-services-Spring-Angular/blob/master/pictures/a14.JPG">
-=======
+
 <img src="https://github.com/Amina-contact/e-commerce-Micro-services-Spring-Angular/blob/master/pictures/a14.JPG">
