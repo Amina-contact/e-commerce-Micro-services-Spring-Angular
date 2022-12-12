@@ -7,6 +7,7 @@ import ma.enset.orderservice.repository.OrderRepository;
 import ma.enset.orderservice.repository.ProductItemRepository;
 import ma.enset.orderservice.service.CustomerRestClientService;
 import ma.enset.orderservice.service.InventoryRestClientService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,6 +26,7 @@ public class OrderRestController {
         this.inventoryRestClientService = inventoryRestClientService;
     }
     @GetMapping("/fullOrder/{id}")
+    @PreAuthorize("hasAuthority('ADMIN,USER')")
     public Order getOrder(@PathVariable Long id){
         Order order=orderRepository.findById(id).get();
         Customer customer=customerRestClientService.customerById(order.getCustomerId());
